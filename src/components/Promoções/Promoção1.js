@@ -9,7 +9,7 @@ const Container = styled.div `
 `
 const MotorolaStyled = styled.img `
   width:95%;
-  height:330px;
+  height:290px;
   margin-top:30px;
   align-self: center;
   border: 2px solid #CDAA7D;

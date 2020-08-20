@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
 import Sacola from './img/sacolinha_sem_fundo.png'
+import App from '../App'
+import Logotipo from './img/logotipo.png'
 
-const Titulo = styled.h3`
-    text-align:center;
+const Titulo = styled.img`
+   margin-left: 56px;
+   margin-top: 10px;
 `
 const InputPersonalizado = styled.input`
   background-color: #F1F1F3;
@@ -34,19 +37,19 @@ const ContainerHeader = styled.div`
 
 class Header extends React.Component{
     state = {
-
+    
     }
 
     render(){
         return(
             <div>
-                <Titulo>Labe E-Commerce</Titulo>
+                <Titulo src={Logotipo} />
                 <InputPersonalizado placeholder="buscar" />
                <ContainerHeader>
                     <SeçãoHeader>Ofertas do dia</SeçãoHeader>
-                    <SeçãoHeader>Celulares</SeçãoHeader>
-                    <SeçãoHeader>Acessórios</SeçãoHeader>
-                    <SacolaStyled src={Sacola}/>
+                    <SeçãoHeader onClick={this.props.funcaoClickCelulares}>Celulares</SeçãoHeader>
+                    <SeçãoHeader onClick={this.props.funcaoClickAcessorios}>Acessórios</SeçãoHeader>
+                    <SacolaStyled onclick={this.props.funcaoClickBolsa} src={Sacola}/>
                 </ContainerHeader>
             </div>
         )
