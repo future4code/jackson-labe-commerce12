@@ -24,8 +24,12 @@ const SeçãoHeader = styled.span`
 const SacolaStyled = styled.img`
     width: 30px;
     height: 30px;
-    padding: 5px;
     
+    
+`
+const ContainerHeader = styled.div`
+    display:flex;
+    justify-content: space-around;
 `
 
 class Header extends React.Component{
@@ -38,10 +42,12 @@ class Header extends React.Component{
             <div>
                 <Titulo>Labe E-Commerce</Titulo>
                 <InputPersonalizado placeholder="buscar" />
-                <SeçãoHeader>Ofertas do dia</SeçãoHeader>
-                <SeçãoHeader>Celulares</SeçãoHeader>
-                <SeçãoHeader>Acessórios</SeçãoHeader>
-                <SacolaStyled src={Sacola}/>
+               <ContainerHeader>
+                    <SeçãoHeader>Ofertas do dia</SeçãoHeader>
+                    <SeçãoHeader>Celulares</SeçãoHeader>
+                    <SeçãoHeader>Acessórios</SeçãoHeader>
+                    <SacolaStyled src={Sacola}/>
+                </ContainerHeader>
             </div>
         )
     }
