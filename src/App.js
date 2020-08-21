@@ -9,7 +9,7 @@ import Promoção2 from './components/Promoções/Promoção2'
 import Promoção3 from './components/Promoções/Promoção3'
 import Promoção4 from './components/Promoções/Promoção4'
 import Footer from './components/Footer'
-import Acessorios from './components/Promoções/Acessórios/Acessorios'
+import Acessorios from './components/Promoções/Acessórios/Acessorios';
 import Bolsa from './components/Promoções/Bolsa/Bolsa'
 import Flecha from './components/img/flecha2.png'
 
