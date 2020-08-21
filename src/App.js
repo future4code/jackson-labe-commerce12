@@ -11,6 +11,7 @@ import Promoção4 from './components/Promoções/Promoção4'
 import Footer from './components/Footer'
 import Acessorios from './components/Promoções/Acessórios/Acessorios'
 import Bolsa from './components/Promoções/Bolsa/Bolsa'
+import Flecha from './components/img/flecha2.png'
 
 const TelaToda = styled.div`
   background-color:black;
@@ -25,6 +26,7 @@ const HeaderStyled = styled.div`
 const ContainerSeta = styled.div `
   display:flex;
   justify-content:center;
+ 
 `
 const Seta = styled.img `
   width:50px;
@@ -32,6 +34,9 @@ const Seta = styled.img `
   align-self: center;
   padding:1px;
   margin-top: 5px;
+  background-color: white;
+  border-radius:5px;
+  margin: 3px;
   
   
 `

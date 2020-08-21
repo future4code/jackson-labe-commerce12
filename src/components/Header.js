@@ -23,10 +23,13 @@ const InputPersonalizado = styled.input`
 `
 const SeçãoHeader = styled.span`
     padding: 5px;
+    border-radius: 5px;
+    
 `
 const SacolaStyled = styled.img`
     width: 30px;
     height: 30px;
+    border-radius: 5px;
     
     
 `
@@ -38,17 +41,22 @@ const ContainerHeader = styled.div`
 class Header extends React.Component{
     state = {
     }
-
+    MouseOver = (event) => {
+        event.target.style.background = '#EECFA1';
+      }
+    MouseOut = (event) =>{
+        event.target.style.background="";
+      }
     render(){
         return(
             <div>
                 <Titulo src={Logotipo} />
                 <InputPersonalizado placeholder="buscar" />
                <ContainerHeader>
-                    <SeçãoHeader onClick={this.props.funcaoClickOfertas}>Ofertas do dia</SeçãoHeader>
-                    <SeçãoHeader onClick={this.props.funcaoClickCelulares}>Celulares</SeçãoHeader>
-                    <SeçãoHeader onClick={this.props.funcaoClickAcessorios}>Acessórios</SeçãoHeader>
-                    <SacolaStyled onClick={this.props.funcaoClickBolsa} src={Sacola}/>
+                    <SeçãoHeader  onMouseOver={this.MouseOver} onMouseOut={this.MouseOut} onClick={this.props.funcaoClickOfertas}>Ofertas do dia</SeçãoHeader>
+                    <SeçãoHeader onMouseOver={this.MouseOver} onMouseOut={this.MouseOut} onClick={this.props.funcaoClickCelulares}>Celulares</SeçãoHeader>
+                    <SeçãoHeader onMouseOver={this.MouseOver} onMouseOut={this.MouseOut} onClick={this.props.funcaoClickAcessorios}>Acessórios</SeçãoHeader>
+                    <SacolaStyled onMouseOver={this.MouseOver} onMouseOut={this.MouseOut} onClick={this.props.funcaoClickBolsa} src={Sacola}/>
                 </ContainerHeader>
             </div>
         )
