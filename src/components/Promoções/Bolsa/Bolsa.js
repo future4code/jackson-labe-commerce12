@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const ContainerProdutos = styled.div`
     background-color: white;
+    background-color: black;
 `
 class Bolsa extends React.Component{
     state = {
@@ -10,7 +11,10 @@ class Bolsa extends React.Component{
     }
     render(){
         return(
-            <ContainerProdutos>Carrinho</ContainerProdutos>
+            <ContainerProdutos>
+                Carrinho
+                {this.props.funcaoCarrinho}
+                </ContainerProdutos>
         )
     }
 }

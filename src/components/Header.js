@@ -37,7 +37,6 @@ const ContainerHeader = styled.div`
 
 class Header extends React.Component{
     state = {
-    
     }
 
     render(){
@@ -46,10 +45,10 @@ class Header extends React.Component{
                 <Titulo src={Logotipo} />
                 <InputPersonalizado placeholder="buscar" />
                <ContainerHeader>
-                    <SeçãoHeader>Ofertas do dia</SeçãoHeader>
+                    <SeçãoHeader onClick={this.props.funcaoClickOfertas}>Ofertas do dia</SeçãoHeader>
                     <SeçãoHeader onClick={this.props.funcaoClickCelulares}>Celulares</SeçãoHeader>
                     <SeçãoHeader onClick={this.props.funcaoClickAcessorios}>Acessórios</SeçãoHeader>
-                    <SacolaStyled onclick={this.props.funcaoClickBolsa} src={Sacola}/>
+                    <SacolaStyled onClick={this.props.funcaoClickBolsa} src={Sacola}/>
                 </ContainerHeader>
             </div>
         )
