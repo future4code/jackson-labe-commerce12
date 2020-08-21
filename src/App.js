@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import Acessorios from './components/Promoções/Acessórios/Acessorios'
 import Bolsa from './components/Promoções/Bolsa/Bolsa'
 
+
 const TelaToda = styled.div`
   background-color:black;
   width:98vw;
