@@ -41,9 +41,9 @@ class App extends React.Component{
     paginaCelular: false,
     paginaOfertas: true,
     paginaAcessorios: false,
-    bolsa: false,
-
-  }
+    bolsa: false, 
+    
+}
   onClickRenderizaTelaDireita = () => {
     if (this.state.promoção < 4){
     this.setState({
@@ -59,48 +59,96 @@ class App extends React.Component{
   renderizaPromoção = () => {
     switch (this.state.promoção) {
       case 1:
-        return <Promoção1 />
+        return (
+          <div>
+           <Promoção1 />
+          <ContainerSeta> 
+          <Seta src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVApbJgbTc8PyuSeYNsp7OvYWNHJdhaHcnRjWYiGf2p0IleHTcscW4xxNvrQ_w88mpBtGd3UEsO2PZ-RMRu8N6EMmxHGfNcTyrgA&usqp=CAU&ec=45690272" onClick={this.onClickRenderizaTelaEsquerda}/>
+          <Seta src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDLdNRAlNQHYxHEtc1dcVRI806KgaLGL4Dmw&usqp=CAU" onClick={this.onClickRenderizaTelaDireita}/>
+          </ContainerSeta>
+        </div>
+        )
       case 2: 
-        return <Promoção2 />
+        return (
+        <div>
+          <Promoção2 />
+          <ContainerSeta> 
+          <Seta src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVApbJgbTc8PyuSeYNsp7OvYWNHJdhaHcnRjWYiGf2p0IleHTcscW4xxNvrQ_w88mpBtGd3UEsO2PZ-RMRu8N6EMmxHGfNcTyrgA&usqp=CAU&ec=45690272" onClick={this.onClickRenderizaTelaEsquerda}/>
+          <Seta src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDLdNRAlNQHYxHEtc1dcVRI806KgaLGL4Dmw&usqp=CAU" onClick={this.onClickRenderizaTelaDireita}/>
+        </ContainerSeta>
+        </div>
+        )
       case 3: 
-        return <Promoção3 />
+        return (
+        <div>
+          <Promoção3 /><ContainerSeta> 
+          <Seta src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVApbJgbTc8PyuSeYNsp7OvYWNHJdhaHcnRjWYiGf2p0IleHTcscW4xxNvrQ_w88mpBtGd3UEsO2PZ-RMRu8N6EMmxHGfNcTyrgA&usqp=CAU&ec=45690272" onClick={this.onClickRenderizaTelaEsquerda}/>
+          <Seta src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDLdNRAlNQHYxHEtc1dcVRI806KgaLGL4Dmw&usqp=CAU" onClick={this.onClickRenderizaTelaDireita}/>
+        </ContainerSeta>
+        </div>
+        )
       case 4: 
-        return <Promoção4 />
+        return (
+        <div>
+          <Promoção4 />
+          <ContainerSeta> 
+          <Seta src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVApbJgbTc8PyuSeYNsp7OvYWNHJdhaHcnRjWYiGf2p0IleHTcscW4xxNvrQ_w88mpBtGd3UEsO2PZ-RMRu8N6EMmxHGfNcTyrgA&usqp=CAU&ec=45690272" onClick={this.onClickRenderizaTelaEsquerda}/>
+          <Seta src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDLdNRAlNQHYxHEtc1dcVRI806KgaLGL4Dmw&usqp=CAU" onClick={this.onClickRenderizaTelaDireita}/>
+        </ContainerSeta>
+        </div>
+        )
       default:
         return <Promoção1 />
     }
   }
 onClickCelulares = () => {
     this.setState({
-        paginaCelular: !this.state.paginaCelular
+        paginaCelular: !this.state.paginaCelular,
+        paginaOfertas: false,
+        paginaAcessorios: false,
+        bolsa: false
       });
 };
 onClickOfertas = () => {
   this.setState({
-      paginaOfertas: !true
+      paginaOfertas: true,
+      paginaCelular: false,
+      paginaAcessorios: false,
+      bolsa: false
     });
 };
 onClickAcessorios = () => {
   this.setState({
-      paginaAcessorios: !this.state.Acessorios
+      paginaAcessorios: !this.state.Acessorios,
+      paginaOfertas: false,
+      paginaCelular: false,
+      bolsa: false,
     });
 };
 onClickBolsa = () => {
+  console.log(this.state.bolsa)
   this.setState({
-      bolsa: !this.state.bolsa
+      bolsa: !this.state.bolsa,
+      paginaAcessorios: false,
+      paginaOfertas: false,
+      paginaCelular: false,
     });
 };
+
 
   render(){
     const paginaCelulares = () => {
             if(this.state.paginaCelular) {
-                return <PaginaProdutos funcaoClickCelular={this.onClickCelulares} />
+                return <PaginaProdutos  />
             }
             if(this.state.paginaAcessorios) {
-              return <Acessorios funcaoClickAcessorios={this.onClickAcessorios} />
+              return <Acessorios />
             }
-            if(this.state.bolsa){
-              return <Bolsa funcaoClickBolsa={this.onClickBolsa} />
+            if(this.state.bolsa) {
+              return <Bolsa funcaoCarrinho={this.props.carrinhoRender} />
+            }
+            if (this.state.paginaOfertas){
+              return this.renderizaPromoção()
             }
       }
     return(
@@ -110,14 +158,11 @@ onClickBolsa = () => {
           funcaoClickCelulares={this.onClickCelulares} 
           funcaoClickAcessorios={this.onClickAcessorios}
           funcaoClickBolsa={this.onClickBolsa}
+          funcaoClickOfertas={this.onClickOfertas}
+          
           />
         </HeaderStyled>
-        {paginaCelulares || this.renderizaPromoção()}
         {paginaCelulares()}
-        <ContainerSeta> 
-          <Seta src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSVApbJgbTc8PyuSeYNsp7OvYWNHJdhaHcnRjWYiGf2p0IleHTcscW4xxNvrQ_w88mpBtGd3UEsO2PZ-RMRu8N6EMmxHGfNcTyrgA&usqp=CAU&ec=45690272" onClick={this.onClickRenderizaTelaEsquerda}/>
-          <Seta src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDLdNRAlNQHYxHEtc1dcVRI806KgaLGL4Dmw&usqp=CAU" onClick={this.onClickRenderizaTelaDireita}/>
-        </ContainerSeta>
         <Footer />
       </TelaToda>
 
